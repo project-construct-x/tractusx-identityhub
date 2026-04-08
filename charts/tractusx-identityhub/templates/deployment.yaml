@@ -20,6 +20,7 @@
   #
 
 ---
+{{- $fullName := .Values.fullnameOverride -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -161,7 +162,7 @@ spec:
           {{- end }}
           {{- range $value := .Values.identityhub.envConfigMapNames }}
             - configMapRef:
-                name: {{ $value | quote }}
+                name: {{ printf "%s-%s" $fullName $value | quote }}
           {{- end }}
           {{- end }}
           volumeMounts:

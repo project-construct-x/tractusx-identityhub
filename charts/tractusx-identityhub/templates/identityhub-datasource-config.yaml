@@ -22,11 +22,12 @@
 ---
 
 # this configmap contains all database configuration that is required by the identityhub runtime.
-
+---
+{{- $fullName := .Values.fullnameOverride -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: "identityhub-datasource-config"
+  name: {{ $fullName }}-identityhub-datasource-config
   namespace: {{ .Release.Namespace | default "default" | quote }}
   labels:
     {{- include "identityhub.labels" . | nindent 4 }}
