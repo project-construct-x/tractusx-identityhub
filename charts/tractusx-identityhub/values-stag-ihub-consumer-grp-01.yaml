@@ -161,7 +161,7 @@ identityhub:
   # Extra environment variables that will be pass onto deployment pods
   env:
     JAVA_TOOL_OPTIONS: -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:1045
-    EDC_HOSTNAME: consumer-idhub-grp-01.staging.construct-x.net
+    EDC_HOSTNAME: consumer-idhub-grp-01.dev.construct-x.net
     EDC_IH_API_SUPERUSER_ID: admin
     EDC_IH_API_SUPERUSER_KEY: YWRtaW4.adminKey
     EDC_SQL_SCHEMA_AUTOCREATE: true
@@ -192,11 +192,11 @@ identityhub:
     ## Public / Internet facing Ingress for the Presentation API
     - enabled: true
       # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
-      hostname: "consumer-idhub-grp-01.staging.construct-x.net"
+      hostname: "consumer-idhub-grp-01.dev.construct-x.net"
       # -- Additional ingress annotations to add
       annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-staging
-        external-dns.alpha.kubernetes.io/hostname: "consumer-idhub-grp-01.staging.construct-x.net"
+        cert-manager.io/cluster-issuer: letsencrypt-dev
+        external-dns.alpha.kubernetes.io/hostname: "consumer-idhub-grp-01.dev.construct-x.net"
         external-dns.alpha.kubernetes.io/ttl: "300"
       # -- EDC endpoints exposed by this ingress resource
       endpoints:
@@ -218,11 +218,11 @@ identityhub:
         # -- If preset enables certificate generation via cert-manager namespace scoped issuer
         issuer: ""
         # -- If preset enables certificate generation via cert-manager cluster-wide issuer
-        clusterIssuer: "letsencrypt-staging"
+        clusterIssuer: "letsencrypt-dev"
     ## Ingress for the Identity API, should not be internet facing
     - enabled: false
       # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
-      hostname: "consumer-idhub-grp-01.staging.construct-x.net"
+      hostname: "consumer-idhub-grp-01.dev.construct-x.net"
       # -- Additional ingress annotations to add
       annotations: {}
       # -- EDC endpoints exposed by this ingress resource
@@ -243,7 +243,7 @@ identityhub:
         # -- If preset enables certificate generation via cert-manager namespace scoped issuer
         issuer: ""
         # -- If preset enables certificate generation via cert-manager cluster-wide issuer
-        clusterIssuer: "letsencrypt-staging"
+        clusterIssuer: "letsencrypt-dev"
   # -- declare where to mount [volumes](https://kubernetes.io/docs/concepts/storage/volumes/) into the container
   volumeMounts: []
   # -- [volume](https://kubernetes.io/docs/concepts/storage/volumes/) directories
@@ -350,7 +350,7 @@ identityhub:
           # -- Enable participant context client configuration
           enabled: true
           # -- Client ID // Did of the initial participant
-          id: "did:web:consumer-idhub-grp-01.staging.construct-x.net"
+          id: "did:web:consumer-idhub-grp-01.dev.construct-x.net"
           # -- The client secret that is stored in the vault for requesting OAuth2 access token for Presentation API access
           secret: "testme"
           # -- Alias under which the client secret is stored in the vault
