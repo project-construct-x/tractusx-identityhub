@@ -350,7 +350,7 @@ identityhub:
           # -- Enable participant context client configuration
           enabled: true
           # -- Client ID // Did of the initial participant
-          id: "did:web:provider-idhub-grp-01.dev.construct-x.net"
+          id: "did:web:provider-idhub-grp-01.dev.construct-x.net:provider"
           # -- The client secret that is stored in the vault for requesting OAuth2 access token for Presentation API access
           secret: "testme"
           # -- Alias under which the client secret is stored in the vault
