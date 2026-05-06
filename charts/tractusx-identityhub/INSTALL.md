@@ -88,6 +88,11 @@ helm list -n user-grp-X
 kubectl get pods -n user-grp-X
 ```
 
+## 8 (Optional) Data Exchange
+
+For the e2e data exchange journey, please refer to the [bruno](../../docs/usage/dcp-api-walkthrough/CX-IdentityHub/) collection
+
+
 ### Helm to manage Kubernetes
 
 #### Basic Helm tricks
