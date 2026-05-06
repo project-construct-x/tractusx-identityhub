@@ -56,7 +56,7 @@ The identityhub configuraion has already been prepared for the workshop.
 ```shell
 helm install consumer-idhub-grp-X \
   -n user-grp-X \
-  -f values-dev-ihub-consumer-grp-X.yaml  \
+  -f values-dev-ihub-consumer-user-grp-X.yaml  \
   .
 ```
 
