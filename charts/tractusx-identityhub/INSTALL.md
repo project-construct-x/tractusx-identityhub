@@ -46,12 +46,12 @@ cd charts/tractusx-identityhub
 helm dependency update
 ```
 
-## 5. Configure the Connector Helm Chart
+## 5. Configure the IdentityHub Helm Chart
 
 The identityhub configuraion has already been prepared for the workshop.
 
 
-## 6. Install the Connector
+## 6. Install the IdentityHub
 
 ```shell
 helm install consumer-idhub-grp-X \
