@@ -28,8 +28,8 @@ install:
   postgresql: true
   vault: true
 
-fullnameOverride: "consumer-idhub-grp-01"
-nameOverride: ""
+fullnameOverride: "consumer-idhub-grp-02"
+nameOverride: "consumer-idhub-grp-02"
 # -- Existing image pull secret to use to [obtain the container image from private registries](https://kubernetes.io/docs/concepts/containers/images/#using-a-private-registry)
 imagePullSecrets:
   - name: registry-creds
@@ -161,7 +161,7 @@ identityhub:
   # Extra environment variables that will be pass onto deployment pods
   env:
     JAVA_TOOL_OPTIONS: -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:1045
-    EDC_HOSTNAME: consumer-idhub-grp-01.dev.construct-x.net
+    EDC_HOSTNAME: consumer-idhub-grp-02.dev.construct-x.net
     EDC_IH_API_SUPERUSER_ID: admin
     EDC_IH_API_SUPERUSER_KEY: YWRtaW4.adminKey
     EDC_SQL_SCHEMA_AUTOCREATE: true
@@ -192,11 +192,11 @@ identityhub:
     ## Public / Internet facing Ingress for the Presentation API
     - enabled: true
       # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
-      hostname: "consumer-idhub-grp-01.dev.construct-x.net"
+      hostname: "consumer-idhub-grp-02.dev.construct-x.net"
       # -- Additional ingress annotations to add
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-dev
-        external-dns.alpha.kubernetes.io/hostname: "consumer-idhub-grp-01.dev.construct-x.net"
+        external-dns.alpha.kubernetes.io/hostname: "consumer-idhub-grp-02.dev.construct-x.net"
         external-dns.alpha.kubernetes.io/ttl: "300"
       # -- EDC endpoints exposed by this ingress resource
       endpoints:
@@ -212,7 +212,7 @@ identityhub:
         # -- Enables TLS on the ingress resource
         enabled: true
         # -- If present overwrites the default secret name
-        secretName: "consumer-idhub-tls-grp-01"
+        secretName: "consumer-idhub-tls-grp-02"
       ## Adds [cert-manager](https://cert-manager.io/docs/) annotations to the ingress resource
       certManager:
         # -- If preset enables certificate generation via cert-manager namespace scoped issuer
@@ -222,7 +222,7 @@ identityhub:
     ## Ingress for the Identity API, should not be internet facing
     - enabled: false
       # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
-      hostname: "consumer-idhub-grp-01.dev.construct-x.net"
+      hostname: "consumer-idhub-grp-02.dev.construct-x.net"
       # -- Additional ingress annotations to add
       annotations: {}
       # -- EDC endpoints exposed by this ingress resource
@@ -350,11 +350,11 @@ identityhub:
           # -- Enable participant context client configuration
           enabled: true
           # -- Client ID // Did of the initial participant
-          id: "did:web:consumer-idhub-grp-01.dev.construct-x.net:consumer"
+          id: "did:web:consumer-idhub-grp-02.dev.construct-x.net:consumer"
           # -- The client secret that is stored in the vault for requesting OAuth2 access token for Presentation API access
           secret: "testme"
           # -- Alias under which the client secret is stored in the vault
-          secret_alias: "sts-secret-grp-01"
+          secret_alias: "sts-secret-grp-02"
           # -- The x-api-key that is stored in the vault for the initial participant
           x_api_key: "ZGlkOndlYjppZGVudGl0eWh1Yi5wcmVzZW50YXRpb24ubG9jYWw=.randomChars"
   # -- Whether web DIDs should be interpreted as HTTPS or HTTP
