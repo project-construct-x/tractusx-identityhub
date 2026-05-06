@@ -1,0 +1,20 @@
+meta {
+  name: test
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://issuerservice-issuance.prod.arena2036-x.de/statuslist
+  body: none
+  auth: inherit
+}
+
+headers {
+  Accept: application/json
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

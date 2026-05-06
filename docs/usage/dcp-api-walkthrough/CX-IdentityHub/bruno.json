@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "CX-IdentityHub",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
