@@ -1,4 +1,4 @@
-# Connector Installation Guide
+# Tractus-IdentityHub Installation Guide
 
 This guide walks you through installing the Connector using Helm in a Kubernetes environment.
 
