@@ -1,0 +1,39 @@
+meta {
+  name: SetConfig
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://local-issuer-service.staging.construct-x.net/api/issuer/v1alpha/credentialsetup/{{B64_ISS_ID}}
+  body: json
+  auth: inherit
+}
+
+headers {
+  x-api-key: {{ISSUER_APIKEY}}
+}
+
+body:json {
+  {
+    "MC-Cred-Def": {
+      "blackList": [],
+      "default": {
+        "credentialSubject": {
+          "isMember": true
+        }
+      }
+    }
+  }
+}
+
+script:pre-request {
+  const btoa = require("btoa");
+  const iss_id = bru.getEnvVar("ISS_ID");
+  bru.setEnvVar("B64_ISS_ID", btoa(iss_id));
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
